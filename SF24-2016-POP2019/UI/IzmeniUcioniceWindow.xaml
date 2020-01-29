@@ -1,0 +1,75 @@
+﻿<Window x:Class="SF24_2016_POP2019.UI.IzmeniUcioniceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF24_2016_POP2019.UI"
+        mc:Ignorable="d"
+        Title="Izmena i dodavanje ucionice" Height="450" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF1010D4" Offset="0"/>
+                <GradientStop Color="#FF1010D4" Offset="1"/>
+                <GradientStop Color="White" Offset="0.518"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="132"/>
+            <ColumnDefinition Width="268"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Broj ucionice: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="30" Margin="0,18,0,19" Width="108"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=BrojUcionice, ValidatesOnDataErrors=True}"  Name="tbBrUcionice" Margin="68,18,50,19" >
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Text="Polje ne sme biti prazno" Foreground="Red"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="1" Content="Broj mesta: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="0,18,0,19" Width="108"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=BrojMesta, ValidatesOnDataErrors=True}" Name="tbBrMesta" Margin="68,18,50,19" >
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Text="Polje ne sme biti prazno" Foreground="Red"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="2" Content="Tip ucionice: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="0,18,0,20" Width="108"/>
+        <ComboBox Grid.Row="2" Grid.Column="1" FontSize="15" Name="cbTipUcionice" SelectedItem="{Binding Path=TipUcionice}" Margin="68,18,50,20"/>
+        <ComboBox Grid.Row="3" Text="{Binding Path=UstanovaId}" Grid.Column="1" FontSize="15" Name="cbUstanova" Margin="68,23,50,10"/>
+        <Label Grid.Row="3" Content="Ustanova: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Height="42" Margin="0,12,0,0" Width="100"/>
+        <Button Grid.Row="4" Name="Sacuvaj" Content="Sacuvaj" Grid.Column="1"  Click="SacuvajIzmene" Margin="44,22,142,11">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="IsEnabled" Value="false" />
+                    <Style.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding  ElementName=tbBrUcionice, Path=(Validation.HasError)}" 
+                                       Value="false" />
+                                <Condition Binding="{Binding  ElementName=tbBrMesta, Path=(Validation.HasError)}" 
+                                       Value="false" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="IsEnabled" 
+                            Value="true" />
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Grid.Row="4" Name="Izadji" Content="Izadji" Grid.Column="1" Click="IzlazIzProzora" Margin="153,22,34,11" />
+    </Grid>
+</Window>

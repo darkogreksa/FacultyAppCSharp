@@ -1,0 +1,12 @@
+﻿<Window x:Class="SF24_2016_POP2019.UI.PrikazKorisnikaInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF24_2016_POP2019.UI"
+        mc:Ignorable="d"
+        Title="Podaci o ulogovanom korisniku" Height="400" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <TextBlock Name="tbKorisnikInfo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" />
+    </Grid>
+</Window>

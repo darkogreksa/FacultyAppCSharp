@@ -1,0 +1,42 @@
+﻿<Window x:Class="SF24_2016_POP2019.UI.IzmeniTermineWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF24_2016_POP2019.UI"
+        mc:Ignorable="d"
+        Title="Izmena i dodavanje termina" Height="500" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF1010D4" Offset="0"/>
+                <GradientStop Color="#FF1010D4" Offset="1"/>
+                <GradientStop Color="White" Offset="0.518"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="271"/>
+            <ColumnDefinition Width="283"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Tip nastave: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="30" Margin="0,24" Width="138"/>
+        <ComboBox Grid.Column="1" FontSize="15" Name="cbTipNastave" SelectedItem="{Binding Path=TipNastave}" Margin="72,24,-58,23"/>
+        <Label Grid.Row="1" Content="Vreme zauzeca od: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="0,24" Width="177"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="tbVremeOd" Margin="72,24,-58,25" />
+        <Label Grid.Row="2" Content="Vreme zauzeca do: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="0,24" Width="138"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Name="tbVremeDo" Margin="72,25,-58,24" />
+        <Label Grid.Row="3" Content="Dan: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="0,24" Width="138"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Name="tbDan" Margin="72,25,-58,24" />
+        <Label Grid.Row="4" Content="Korisnik koji je zauzeo termin: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="0,24" Width="215"/>
+        <ComboBox Grid.Row="4" Grid.Column="1"  Name="cbKorisnik" Margin="72,24,-58,25" />
+        <Button Grid.Row="5" Name="Sacuvaj" Content="Sacuvaj" Grid.Column="1"  Click="Sacuvaj_Click" Margin="53,22,151,22"/>
+        <Button Grid.Row="5" Name="Izadji" Content="Izadji" Grid.Column="1" Click="Izadji_Click" Margin="218,22,-16,22" />
+    </Grid>
+</Window>

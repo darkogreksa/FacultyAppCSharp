@@ -1,0 +1,97 @@
+﻿<Window x:Class="SF24_2016_POP2019.UI.KorisniciWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF24_2016_POP2019.UI"
+        mc:Ignorable="d"
+        Title="Korisnici" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF9F9F9" Offset="0"/>
+                <GradientStop Color="#FF0E17D6" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition />
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Pretraga:" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"/>
+            <TextBox Name="tbPretraga" Grid.Row="1" Grid.Column="2" Height="25"/>
+
+            <ComboBox Grid.Column="2" Grid.Row="0" Name="cbPretraga" Height="25" SelectedIndex="0">
+                <ComboBoxItem Content="po imenu"/>
+                <ComboBoxItem Content="po prezimenu"/>
+                <ComboBoxItem Content="po korisnickom imenu"/>
+                <ComboBoxItem Content="po email-u"/>
+                <ComboBoxItem Content="po tipu korisnika"/>
+                <ComboBoxItem Content="po ustanovi u kojoj je zaposlen"/>
+            </ComboBox>
+            <Button Content="Pretrazi" Grid.Row="2" Grid.Column="2" Height="25" Click="PretraziKorisnika_Click"/>
+
+            <Label Content="Sortiraj:" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"/>
+            <ComboBox Grid.Row="0" Grid.Column="4" Name="cbSortiranje" Height="25" SelectedIndex="0">
+                <ComboBoxItem Content="po imenu"/>
+                <ComboBoxItem Content="po prezimenu"/>
+                <ComboBoxItem Content="po korisnickom imenu"/>
+                <ComboBoxItem Content="po email-u"/>
+                <ComboBoxItem Content="po tipu korisnika"/>
+                <ComboBoxItem Content="po ustanovi u kojoj je zaposlen"/>
+            </ComboBox>
+            <ComboBox Grid.Row="1" Grid.Column="4" Height="25" SelectedIndex="0" Name="cbSortiraj">
+                <ComboBoxItem Content="Opadajuce"/>
+                <ComboBoxItem Content="Rastuce"/>
+            </ComboBox>
+            <Button Content="Sortiraj" Grid.Row="2" Grid.Column="4" Height="25" Click="SortirajKorisnika_Click"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid Grid.Row="0" Grid.Column="1" FontSize="12" Name="dgKorisnik" AutoGenerateColumns="False" SelectedItem="{Binding Path=IzabraniKorisnik}" CanUserAddRows="False" IsReadOnly="True" SelectedIndex="0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Ime" Binding="{Binding Ime}" Width="*" />
+                    <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}" Width="*"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                    <DataGridTextColumn Header="Korisnicko ime" Binding="{Binding Username}" Width="*"/>
+                    <DataGridTextColumn Header="Tip korisnika" Binding="{Binding TipKorisnika}" Width="*"/>
+                    <DataGridTextColumn Header="Zaposlen u ustanovi" Binding="{Binding Ustanova}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Dodaj"   Grid.Row="1" Grid.Column="0"  Click="DodajKorisnika" Height="30" Width="70"/>
+            <Button Content="Izmeni" Grid.Row="1" Grid.Column="1"  Click="IzmeniKorisnika" Height="30" Width="70"/>
+            <Button Content="Obrisi"  Grid.Row="1" Grid.Column="2" Click="ObrisiKorisnika_Click" Height="30" Width="70"/>
+            <Button Content="Zatvori" Grid.Row="1" Grid.Column="4" Click="ZatvoriProzor_Click" Height="30" Width="70"/>
+        </Grid>
+    </Grid>
+</Window>

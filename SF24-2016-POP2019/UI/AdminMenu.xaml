@@ -1,0 +1,40 @@
+﻿<Window x:Class="SF24_2016_POP2019.UI.AdminMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF24_2016_POP2019.UI"
+        mc:Ignorable="d"
+        Title="Meni za administratora" Height="600" Width="600">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush>
+                <ImageBrush.ImageSource>
+                    <BitmapImage UriSource="file:///C:/Users/Greksa/Desktop/PopGIT/SF24-2016-POP2019/images/admin.png"/>
+                </ImageBrush.ImageSource>
+            </ImageBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="1" Grid.Column="0" FontSize="20" Name="BtnUstanove" Content="Ustanove" Click="BtnUstanove_Click" Width="200"  />
+        <Button Grid.Row="1"  Grid.Column="1" FontSize="20" Name="BtnUcionice" Content="Ucionice"  Click="BtnUcionice_Click" Width="200" Margin="28,0,64,0" />
+        <Button Grid.Row="3"  Grid.Column="0" FontSize="20" Name="BtnKorisnici" Content="Korisnici"  Click="BtnKorisnici_Click" Width="200" Margin="50,0" />
+        <Button Grid.Row="3"  Grid.Column="1" FontSize="20" Name="BtnTermini" Content="Termini"  Click="BtnTermini_Click" Width="200" Margin="28,0,64,0" />
+        <Button Grid.Row="7" FontSize="20" Name="ZatvoriProzor" Content="Zatvori"  Click="ZatvoriProzor_Click" Height="35" Width="100" Margin="0,18,102,23" RenderTransformOrigin="0.5,0.251" HorizontalAlignment="Right"/>
+        <Button Grid.Row="7"  Grid.Column="1" FontSize="20" Name="IzlogujSe" Content="Izloguj se"   Height="35" Width="100" Margin="76,18,0,23" Click="IzlogujSe_Click" HorizontalAlignment="Left"/>
+    </Grid>
+</Window>

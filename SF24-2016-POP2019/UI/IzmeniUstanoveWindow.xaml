@@ -1,0 +1,83 @@
+﻿<Window x:Class="SF24_2016_POP2019.UI.IzmeniUstanoveWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SF24_2016_POP2019.UI"
+        mc:Ignorable="d"
+        Title="Izmena i dodavanje ustanove" Height="300" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF1010D4" Offset="0"/>
+                <GradientStop Color="#FF1010D4" Offset="1"/>
+                <GradientStop Color="White" Offset="0.518"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Sifra: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"  Height="30" Margin="0,24" Width="42"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=SifraUstanove, ValidatesOnDataErrors=True}"  Name="tbSifra" Margin="7,18,50,19" >
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Text="Polje ne sme biti prazno" Foreground="Red"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="1" Content="Naziv: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="0,24,0,25" Width="70"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Naziv, ValidatesOnDataErrors=True}" Name="tbNaziv" Margin="7,18,50,19" >
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Text="Polje ne sme biti prazno" Foreground="Red"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Grid.Row="2" Content="Lokacija: " FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="0,24,0,25" Width="70"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Lokacija, ValidatesOnDataErrors=True}" Name="tbLokacija" Margin="7,18,50,20" >
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Text="Polje ne sme biti prazno" Foreground="Red"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Button Grid.Row="3" Name="Sacuvaj" Content="Sacuvaj" Grid.Column="1"  Click="Sacuvaj_Click" Margin="44,22,186,22">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="IsEnabled" Value="false" />
+                    <Style.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding  ElementName=tbSifra, Path=(Validation.HasError)}" 
+                                       Value="false" />
+                                <Condition Binding="{Binding  ElementName=tbNaziv, Path=(Validation.HasError)}" 
+                                       Value="false" />
+                                <Condition Binding="{Binding  ElementName=tbLokacija, Path=(Validation.HasError)}" 
+                                       Value="false" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="IsEnabled" 
+                            Value="true" />
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Grid.Row="3" Name="Izadji" Content="Izadji" Grid.Column="1" Click="Izadji_Click" Margin="153,22,77,22" />
+    </Grid>
+</Window>
